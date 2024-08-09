@@ -2,7 +2,7 @@ import copy
 import random
 import Conway_GOL_patterns
 
-from Grid_Building import grid_template
+from grids_and_mazes.Grid_Building import grid_template
 import turtle as t
 
 new_grid = grid_template.grid(50,50,10, hide_grid=False, line_color='black')

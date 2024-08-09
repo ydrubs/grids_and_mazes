@@ -1,9 +1,14 @@
 import turtle as t
 from Grid_Building import grid_template
-from Recycle_Bin import maze_data_structure
+from Mazes.maze_generator import Generate
 
-#Create a grid with the passed in parameters
-grid = grid_template.grid(4, 4, cell_dim=30, border=40, bg_color='cyan', hide_grid=False)  # create a grid object
+"""Creates a grid object:
+    parameters (required):
+        - Number of columns, number of rows
+    parameters (optional)
+        - cell_dim - default is 
+    """
+grid = grid_template.grid(40, 40, cell_dim=10, border=30, bg_color='cyan', hide_grid=False)  # create a grid object
 
 #Specifiy thickness of vert and hor lines in the grid (needs to be the same for the maze function to look consistant.
 grid.line_thickness_hor = 1

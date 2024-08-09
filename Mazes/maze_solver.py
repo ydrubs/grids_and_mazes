@@ -2,8 +2,9 @@ import turtle as t
 import time
 from itertools import cycle
 from collections import deque
-from Grid_Building import grid_template
-from maze_generator import Generate
+from grids_and_mazes.Grid_Building import grid_template
+# from maze_generator import Generate
+from grids_and_mazes.Mazes.maze_generator import Generate
 
 class Solve:
     def __init__(self,maze_obj):
@@ -50,7 +51,7 @@ class Solve:
             if accessible_neighbors and accessible_neighbors[-1] not in visited:
                 next_row, next_col = accessible_neighbors.pop()
                 visited.append((next_row, next_col))
-                t.goto(grid.grid_data_centers()[next_row][next_col][0], grid.grid_data_centers()[next_row][next_col][1])
+                t.goto(self.grid.grid_data_centers()[next_row][next_col][0], self.grid.grid_data_centers()[next_row][next_col][1])
 
                 # If there is another neighbor (or more) to visit, we have multiple paths, add it to the need_to_visit list
                 if accessible_neighbors:
@@ -65,8 +66,8 @@ class Solve:
                     t.color(next(colors))
                     visited.append((next_row, next_col))
                     t.pensize(1)
-                    t.goto(grid.grid_data_centers()[next_row][next_col][0],
-                           grid.grid_data_centers()[next_row][next_col][1])
+                    t.goto(self.grid.grid_data_centers()[next_row][next_col][0],
+                           self.grid.grid_data_centers()[next_row][next_col][1])
                     t.pensize(4)
                     t.down()
                 else:
@@ -109,7 +110,7 @@ class Solve:
             # print(row, col)
 
             #Draw the path
-            t.goto(grid.grid_data_centers()[row][col][0], grid.grid_data_centers()[row][col][1])
+            t.goto(self.grid.grid_data_centers()[row][col][0], self.grid.grid_data_centers()[row][col][1])
             t.dot(5, 'red')
 
             # Explore neighbors
@@ -156,7 +157,7 @@ class Solve:
         # return None
 
 if __name__ == '__main__':
-    grid = grid_template.grid(60, 40, cell_dim=15, border=40, bg_color='cyan', hide_grid=False) #Create grid objrct
+    grid = grid_template.grid(10, 10, cell_dim=15, border=40, bg_color='cyan', hide_grid=False) #Create grid objrct
     grid.build_grid()
 
     maze_generator =  Generate(grid) # Create object for maze generation

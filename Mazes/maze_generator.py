@@ -1,9 +1,8 @@
 from math import ceil
 import turtle as t
 import random
-from Grid_Building import grid_template
-from Algorithms import Union_Find_Kruskals
-
+from grids_and_mazes.Grid_Building import grid_template
+from grids_and_mazes.Algorithms import Union_Find_Kruskals
 
 class Generate:
     def __init__(self, grid_obj):

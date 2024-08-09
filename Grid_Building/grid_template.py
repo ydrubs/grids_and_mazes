@@ -13,7 +13,7 @@ Generate an nxm grid using Turtle Graphics.The following data can be retrieved f
 import turtle as t
 from copy import deepcopy
 class grid:
-    def __init__(self, columns = 10, rows = 10, cell_dim = 20, border = 40, bg_color = 'lightgreen', hide_grid = False, line_color = 'black'):
+    def __init__(self, columns = 10, rows = 10, cell_dim = 20, border = 40, bg_color = 'lightgreen', hide_grid = False, line_color = 'black', line_thickness_vert = 1, line_thickness_hor=1):
         #Set screen variables
         self.columns = columns
         self.rows = rows
@@ -31,8 +31,8 @@ class grid:
         self.min_Y = -(self.screen_height//2)
         self.screen_setup(self.bg_color)
 
-        self.line_thickness_vert = 1 #Use this to (optionally) change the vertical and horizontal line thickness' independently
-        self.line_thickness_hor = 1
+        self.line_thickness_vert = line_thickness_vert #Use this to (optionally) change the vertical and horizontal line thickness' independently
+        self.line_thickness_hor = line_thickness_hor
 
         self.grid_array_data = [[0 for i in range(self.columns)] for j in range(self.rows)] #Array to hold info from ind. cells
 
